@@ -2,11 +2,15 @@ const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
 const mySqlPool = require("./config/db");
-
+const cors = require('cors');
 const app = express();
 
 // Middleware
 app.use(express.json()); // To parse JSON bodies
+
+app.use(cors({
+    origin: process.env.FRONTEND_URI,
+}));
 
 // Routes
 app.use("/api/v1/users", require("./routes/userRoutes"));
