@@ -10,11 +10,8 @@ app.use(express.json()); // To parse JSON bodies
 
 // Routes
 app.use("/api/v1/users", require("./routes/userRoutes"));
+app.use("/api/v1/posts", require("./routes/postRoutes"));
 
-// Test Route
-app.get("/users", (req, res) => {
-  res.status(200).send("<h1> Hello </h1>");
-});
 
 // Connect to Database
 mySqlPool
